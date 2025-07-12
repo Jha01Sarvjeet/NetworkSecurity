@@ -1,16 +1,21 @@
-# This is a sample Python script.
+from NetworkSecurity.components.data_ingestion import  DataIngestion
+from NetworkSecurity.entity.config_entity import DataIngestionConfig
+from NetworkSecurity.entity.artifact_entity import DataIngestionArtifacts
+from NetworkSecurity.entity.config_entity import TrainingPipelineConfig
+from NetworkSecurity.exception.exception import CustomException
+from NetworkSecurity.logging.logger import logging
+import sys
 
-# Press Ctrl+F5 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press F9 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    try:
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+        training_pipeline_config=TrainingPipelineConfig()
+        data_ingestion_config=DataIngestionConfig(training_pipeline_config=training_pipeline_config)
+        data_ingestion=DataIngestion(data_ingestion_config=data_ingestion_config)
+        logging.info("Initiate the data ingestion")
+        data_ingestion.initiate_data_ingestion()
+        logging.info("Data Initiation Completed")
+
+    except Exception as e:
+        raise CustomException(e, sys)
+
