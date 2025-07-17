@@ -8,7 +8,6 @@ from NetworkSecurity.exception.exception import CustomException
 from NetworkSecurity.logging.logger import logging
 from NetworkSecurity.entity.config_entity import DataIngestionConfig
 from sklearn.model_selection import train_test_split
-# from push_data import MONGO_DB_URL
 from NetworkSecurity.entity.artifact_entity import DataIngestionArtifacts
 
 load_dotenv()

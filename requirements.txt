@@ -6,6 +6,10 @@ pymongo
 certifi
 pymongo[srv]
 scikit-learn
+dill
+scipy
+PyYAML
+
 
 
 ##at last do it
